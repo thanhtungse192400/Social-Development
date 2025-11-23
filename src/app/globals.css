@@ -1,0 +1,134 @@
+/* src/app/globals.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Arial', sans-serif;
+}
+
+body.app-layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #000;
+}
+
+/* Sidebar */
+body.app-layout > aside {
+  width: 80px;
+  background-color: #111;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 1rem;
+}
+
+/* Main content */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow-y: hidden;
+  position: relative;
+}
+
+/* Header */
+.main-content header {
+  height: 60px;
+  background-color: #000;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  padding: 0 1rem;
+  border-bottom: 1px solid #222;
+  font-weight: bold;
+  z-index: 10;
+}
+
+/* Reels container */
+.reels-container {
+  flex: 1;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Reel item full screen */
+.reel-item {
+  height: calc(100vh - 60px);
+  width: 100%;
+  scroll-snap-align: start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  background-color: #000;
+  margin: 0 auto;
+}
+
+/* Overlay actions (like/comment/share) */
+.reel-actions {
+  position: absolute;
+  top: 86%;                /* canh giữa theo chiều dọc */
+  right: 1rem;             /* sát mép phải khung video */
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.reel-video {
+  max-width: 660px;       /* TikTok video width khoảng 360px */
+  width: 100%;
+  max-height: 940px;      /* 9:16 tỷ lệ chuẩn */
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;    /* optional bo tròn góc */
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.reel-actions button {
+  background: rgba(0,0,0,0.5);
+  border: none;
+  color: #fff;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+}
+.sidebar-icon {
+  margin: 1rem 0;
+  cursor: pointer;
+}
+.sidebar-icon:hover {
+  color: #ff2c55;
+}
+.sidebar-icon button{
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  border: none;
+  background: #111;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Thêm hiệu ứng mượt */
+}
+.sidebar-icon button:hover {
+  background: #1f1f1f;
+  color: #ff2c55; /* vàng nhẹ nổi bật */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px); /* nhích lên nhẹ */
+}
+.sidebar-icon button:active {
+  background: #333;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+  transform: translateY(0); /* trở về vị trí */
+}
+
